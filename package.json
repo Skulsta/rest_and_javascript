@@ -1,0 +1,23 @@
+{
+  "name": "rest_and_javascript",
+  "version": "1.0.0",
+  "description": "Standard rest",
+  "main": "server.js",
+  "scripts": {
+    "test": "waa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skulsta/rest_and_javascript.git"
+  },
+  "keywords": [
+    "rest",
+    "javascript"
+  ],
+  "author": "Stian Skulstad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skulsta/rest_and_javascript/issues"
+  },
+  "homepage": "https://github.com/Skulsta/rest_and_javascript#readme"
+}

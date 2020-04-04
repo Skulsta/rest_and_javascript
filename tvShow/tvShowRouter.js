@@ -1,9 +1,10 @@
 const express = require('express');
 const TvShow = require('./TvShow');
+const tvShowService = require('./tvShowService');
 
 const tvShowRouter = express.Router();
 
-const tvShows = [new TvShow(1, 'Mr. Robot', 'Drama'), new TvShow(2, 'Black Mirror', 'Drama')];
+tvShows = tvShowService.getAll();
 
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShows);

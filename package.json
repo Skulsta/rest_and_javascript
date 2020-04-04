@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Skulsta/rest_and_javascript/issues"
   },
-  "homepage": "https://github.com/Skulsta/rest_and_javascript#readme"
+  "homepage": "https://github.com/Skulsta/rest_and_javascript#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

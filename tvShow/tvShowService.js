@@ -11,7 +11,7 @@ class TvShowService {
   }
 
   getById(tvShowId) {
-    return tvShows.find(tvShow => tvShow.id == tvShowId);
+    return this.tvShows.find(tvShow => tvShow.id == tvShowId);
   }
 }
 

@@ -1,12 +1,11 @@
+// Handle everything web related that has to do with the tv show resource
+
 const express = require('express');
 const tvShowService = require('./tvShowService');
-
 const tvShowRouter = express.Router();
 
-const tvShows = tvShowService.getAll();
-
 tvShowRouter.get('/', (req, res) => {
-  res.json(tvShows);
+  res.json(tvShowService.getAll());
 });
 
 tvShowRouter.route('/:tvShowId').get((req, res) => {
@@ -16,6 +15,10 @@ tvShowRouter.route('/:tvShowId').get((req, res) => {
 });
 
 tvShowRouter.post('/', (req, res) => {
+  const name = req.body.name;
+  const genre = req.body.genre;
+  const newTvShow = tvShowService.createTvShow(name, genre);
+  res.send(newTvShow);
 
 });
 

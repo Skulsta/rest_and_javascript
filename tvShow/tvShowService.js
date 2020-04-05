@@ -23,6 +23,9 @@ class TvShowService {
     return tvShow;
   }
 
+  remove(tvShowId) {
+    this.tvShows = this.tvShows.filter(tvShow => tvShow.id !== tvShowId);
+  }
 }
 
 module.exports = new TvShowService();

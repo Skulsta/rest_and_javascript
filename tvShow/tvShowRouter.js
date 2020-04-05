@@ -8,11 +8,17 @@ tvShowRouter.get('/', (req, res) => {
   res.json(tvShowService.getAll());
 });
 
-tvShowRouter.route('/:tvShowId').get((req, res) => {
+tvShowRouter.route('/:tvShowId')
+  .get((req, res) => {
   const tvShowId = req.params.tvShowId;
   const tvShowResult = tvShowService.getById(tvShowId);
   res.send(`Fetching TV Show with id ${tvShowId}. The result is: ${tvShowResult.name}.`);
-});
+  })
+  .delete((req, res) => {
+    const tvShowId = req.params.tvShowId;
+    tvShowService.remove(tvShowId);
+    res.json(tvShowService.getAll());
+  })
 
 tvShowRouter.post('/', (req, res) => {
   const name = req.body.name;

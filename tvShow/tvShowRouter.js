@@ -19,6 +19,10 @@ tvShowRouter.route('/:tvShowId')
     tvShowService.remove(tvShowId);
     res.json(tvShowService.getAll());
   })
+  .put((req, res) => {
+    const tvShow = tvShowService.update(req.params.tvShowId, req.body);
+    res.send(tvShow);
+  });
 
 tvShowRouter.post('/', (req, res) => {
   const name = req.body.name;

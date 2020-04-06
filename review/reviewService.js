@@ -12,6 +12,10 @@ class ReviewService {
     return newReview;
   }
 
+  getAll() {
+    return this.reviews;
+  }
+
 }
 
-module.exports = ReviewService;
+module.exports = new ReviewService();

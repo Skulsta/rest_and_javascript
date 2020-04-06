@@ -26,7 +26,10 @@ reviewRouter.route('/:reviewId')
   .put((req, res) => {
     const reviewId = req.params.reviewId;
     res.send(reviewService.update(reviewId, req.body));
+  })
+  .delete((req, res) => {
+    reviewService.remove(req.params.reviewId);
+    res.json(reviewService.getAll());
   });
-
 
 module.exports = reviewRouter;

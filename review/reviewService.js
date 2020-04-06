@@ -20,6 +20,17 @@ class ReviewService {
     return this.reviews.find(review => review.id == reviewId);
   }
 
+  update(reviewId, updatedReview) {
+    this.reviews = this.reviews
+      .map(review => {
+        if (review.id === reviewId) {
+          return Object.assign({}, review,  updatedReview);
+        }
+        return review;
+      });
+    return this.getReview(reviewId);
+  }
+
 }
 
 module.exports = new ReviewService();

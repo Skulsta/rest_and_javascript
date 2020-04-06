@@ -14,14 +14,19 @@ reviewRouter.post('/', (req, res) => {
   res.status(201).json(review);
 });
 
-reviewRouter.route('/:reviewId').get((req, res) => {
-  const reviewId = req.params.reviewId;
-  const review = reviewService.getReview(reviewId);
-  res.send(`Looking for review with Id # ${reviewId}.
+reviewRouter.route('/:reviewId')
+  .get((req, res) => {
+    const reviewId = req.params.reviewId;
+    const review = reviewService.getReview(reviewId);
+    res.send(`Looking for review with Id # ${reviewId}.
     Review for x movie:
     ${review.content}
     Score: ${review.score}`)
-});
+  })
+  .put((req, res) => {
+    const reviewId = req.params.reviewId;
+    res.send(reviewService.update(reviewId, req.body));
+  });
 
 
 module.exports = reviewRouter;

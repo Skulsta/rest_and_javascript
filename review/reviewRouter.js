@@ -12,6 +12,16 @@ reviewRouter.post('/', (req, res) => {
   const relatedItemId =  req.body.relatedItemId;
   const review = reviewService.create(content, score, relatedItemId);
   res.status(201).json(review);
-})
+});
+
+reviewRouter.route('/:reviewId').get((req, res) => {
+  const reviewId = req.params.reviewId;
+  const review = reviewService.getReview(reviewId);
+  res.send(`Looking for review with Id # ${reviewId}.
+    Review for x movie:
+    ${review.content}
+    Score: ${review.score}`)
+});
+
 
 module.exports = reviewRouter;

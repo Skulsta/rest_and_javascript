@@ -16,6 +16,10 @@ class ReviewService {
     return this.reviews;
   }
 
+  getReview(reviewId) {
+    return this.reviews.find(review => review.id == reviewId);
+  }
+
 }
 
 module.exports = new ReviewService();

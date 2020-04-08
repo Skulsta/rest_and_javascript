@@ -4,7 +4,7 @@ const createId = require('../utils/idUtil');
 
 class TvShowService {
   constructor() {
-    this.tvShows = [new TvShow(createId(), 'The Office', 'Comedy'),
+    this.tvShows = [new TvShow('e24', 'The Office', 'Comedy'),
     new TvShow(createId(), 'Friends', 'Comedy')];
   }
 

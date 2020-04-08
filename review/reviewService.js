@@ -3,7 +3,7 @@ const createId = require('../utils/idUtil');
 
 class ReviewService {
   constructor() {
-    this.reviews = [new Review(createId(), "Fantastic movie", 8, "e8076")];
+    this.reviews = [new Review(createId(), "Good stuff", 9, "e24"), new Review(createId(), "Fantastic movie", 8, "e8076")];
   }
 
   create(content, score, relatedItemId) {
@@ -33,6 +33,10 @@ class ReviewService {
 
   remove(reviewId) {
     this.reviews = this.reviews.filter(review => review.id !== reviewId);
+  }
+
+  getReviewsForTvShow(tvShowId) {
+    return this.reviews.find(review => review.relatedItemId == tvShowId);
   }
 
 }

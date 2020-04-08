@@ -3,6 +3,7 @@
 const express = require('express');
 const tvShowService = require('./tvShowService');
 const tvShowRouter = express.Router();
+const reviewService = require('../review/reviewService');
 
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShowService.getAll());
@@ -29,7 +30,12 @@ tvShowRouter.post('/', (req, res) => {
   const genre = req.body.genre;
   const newTvShow = tvShowService.createTvShow(name, genre);
   res.send(newTvShow);
+});
 
+tvShowRouter.route('/:tvShowId/review').get((req, res) => {
+  const tvShowId = req.params.tvShowId;
+  const reviews = reviewService.getReviewsForTvShow(tvShowId);
+  res.json(reviews);
 });
 
 module.exports = tvShowRouter;
